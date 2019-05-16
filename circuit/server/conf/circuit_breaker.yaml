@@ -3,7 +3,7 @@ cse:
   isolation:
     Consumer:
       timeoutInMilliseconds: 1000
-      maxConcurrentRequests: 100
+      maxConcurrentRequests: 3
   circuitBreaker:
     Consumer:
       enabled: false
