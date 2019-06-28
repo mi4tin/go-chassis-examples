@@ -11,6 +11,13 @@ cse:
   config:
     client:
       serverUri: http://10.1.0.49:8080
+      type: apollo                              # The type should be Apollo
+      refreshMode: 1                            # Refresh Mode should be 1 so that Chassis-pulls the Configuration periodically
+      refreshInterval: 10                       # Chassis retrives the configurations from Apollo at this interval
+      serviceName: apollo-test          # This the name of the project in Apollo Server
+      env: DEV                                  # This is the name of environment to which configurations belong in Apollo
+      cluster: apollo1                             # This is the name of cluster to which your Project belongs in Apollo
+      namespace: TEST1.apolloSpace
   protocols:
     rest:
       listenAddress: 127.0.0.1:8080

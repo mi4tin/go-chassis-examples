@@ -15,11 +15,13 @@ import (
 
 //if you use go run main.go instead of binary run, plz export CHASSIS_HOME=/{path}/{to}/circuit/client/
 func main() {
+
 	//Init framework
 	if err := chassis.Init(); err != nil {
 		openlogging.Error("Init failed." + err.Error())
 		return
 	}
+
 	for i := 0; i < 100; i++ {
 		callError()
 	}
@@ -53,8 +55,8 @@ func callError() {
 		openlogging.GetLogger().Error("request failed: " + err.Error())
 		return
 	}
-
 }
+
 func callConcurrency(wg *sync.WaitGroup) {
 	defer wg.Done()
 	req, err := rest.NewRequest("GET", "http://CircuitServer/concurrency", nil)

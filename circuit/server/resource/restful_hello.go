@@ -1,11 +1,13 @@
 package resource
 
 import (
-	"errors"
+//	"errors"
 	"net/http"
 
 	rf "github.com/go-chassis/go-chassis/server/restful"
 	"sync"
+	"fmt"
+	"errors"
 )
 
 //CircuitResource is a struct used for implementation of restful api
@@ -16,6 +18,9 @@ type CircuitResource struct {
 //Sayerror is a method used to reply request user with error, it fulfills client side error threshold
 func (r *CircuitResource) GetError(b *rf.Context) {
 	b.WriteError(http.StatusInternalServerError, errors.New("internal error"))
+	return
+	fmt.Println("errorok")
+	b.Write([]byte("errorok"))
 	return
 }
 
